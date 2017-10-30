@@ -30,6 +30,7 @@ public class VesalaServer {
     private static FileReader fileReader;
     private static BufferedReader buffFileReader;
     public static String trazenaRec;
+    
     public static void initializeStreams() throws IOException {
     
     try {
@@ -38,6 +39,7 @@ public class VesalaServer {
         buffFileReader = new BufferedReader(fileReader);
         
         String currentLine = buffFileReader.readLine();
+        
             while(currentLine != null) {
                 recnik.add(currentLine);
                 currentLine = buffFileReader.readLine();
@@ -63,13 +65,13 @@ public class VesalaServer {
         
         try {
             while(true) {
+                
                initializeStreams();
                 System.out.println("Server is running!");
                 Socket socket = server.accept();
                 
                 try {
-                    
-                  
+                     
                 System.out.println("Client Connected!");
                 PrintWriter  out = new PrintWriter(socket.getOutputStream(), true);
               

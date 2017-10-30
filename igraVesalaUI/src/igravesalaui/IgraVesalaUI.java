@@ -6,6 +6,7 @@
 package igravesalaui;
 
 import static igravesalaui.IgraVesalaUI.igra;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Image;
@@ -30,15 +31,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
  *
- * @author Imana
+ * @author Sulejman Karisik
  */
 public class IgraVesalaUI  {
     
         
       public static Igra igra;
-   
       public static int br_pogresnih = 0;
    
+      
     public static void main(String[] args) throws IOException {
         
         String serverAdd = "localhost";
@@ -65,16 +66,19 @@ public class IgraVesalaUI  {
         ImageIcon img = new ImageIcon(br_pogresnih+".png");
         JLabel imgL = new JLabel(img);
         
+        frame.setBackground(Color.white);
+        panel.setBackground(Color.white);
         JTextField txt = new JTextField(2);
+        
         JButton btn2 = new JButton();
         JTextField txt2 = new JTextField(20);
         
         JPanel panel2 = new JPanel();
-        btn2.setText("Nova Rec");
+        btn2.setText("Nova Reč");
         panel.add(btn2);
         
         JButton btn1 = new JButton();
-        btn1.setText("probaj");
+        btn1.setText("Probaj");
         panel.add(imgL);
         
         frame.add(panel);
@@ -82,15 +86,14 @@ public class IgraVesalaUI  {
         frame.setSize(500, 400);
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("igra vesala");
+        frame.setTitle("Igra Vešala");
         GridBagConstraints c = new GridBagConstraints();
         
         txt2.setEditable(false);
         txt2.setText(igra.getCurrentGuess());
         frame.setResizable(false);
         
-        
-        
+               
           
         
         btn1.addActionListener(new ActionListener() {
@@ -114,20 +117,23 @@ public class IgraVesalaUI  {
                        
                        if(igra.pobeda()){
                            JOptionPane.showMessageDialog(null, "Pobedili ste!!!");
-                       }
+                          }
                        
                        }  else {
                    
-                   JOptionPane.showMessageDialog(null, "Nema tog slova!");
+                    JOptionPane.showMessageDialog(null, "Nema tog slova!");
                     txt.setText("");
                     br_pogresnih++;
                     panel.removeAll();
+                    
                     ImageIcon img = new ImageIcon(br_pogresnih+".png");
                     JLabel imgL = new JLabel(img);
                     panel.add(imgL);
+                    
                     panel.add(txt,c);
                     panel.add(btn1,c);
                     panel.add(txt2,c);
+                    
                     panel.add(btn2,c);
                     txt2.setText(igra.getCurrentGuess());
                     
@@ -179,13 +185,15 @@ public class IgraVesalaUI  {
                 
       
           
-                 panel.removeAll();
+                    panel.removeAll();
                     ImageIcon img = new ImageIcon(br_pogresnih+".png");
                     JLabel imgL = new JLabel(img);
                     panel.add(imgL);
+                    
                     panel.add(txt,c);
                     panel.add(btn1,c);
                     panel.add(txt2,c);
+                    
                     panel.add(btn2,c);
                     txt2.setText(igra.getCurrentGuess());
 
