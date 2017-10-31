@@ -77,6 +77,7 @@ public class IgraVesalaUI  {
         btn2.setText("Nova Reč");
         panel.add(btn2);
         
+        
         JButton btn1 = new JButton();
         btn1.setText("Probaj");
         panel.add(imgL);
@@ -93,8 +94,9 @@ public class IgraVesalaUI  {
         txt2.setText(igra.getCurrentGuess());
         frame.setResizable(false);
         
-               
-          
+        btn1.setBackground(Color.white);
+        btn2.setBackground(Color.white);
+        txt2.setBackground(Color.white);  
         
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -129,7 +131,7 @@ public class IgraVesalaUI  {
                     ImageIcon img = new ImageIcon(br_pogresnih+".png");
                     JLabel imgL = new JLabel(img);
                     panel.add(imgL);
-                    
+                   
                     panel.add(txt,c);
                     panel.add(btn1,c);
                     panel.add(txt2,c);

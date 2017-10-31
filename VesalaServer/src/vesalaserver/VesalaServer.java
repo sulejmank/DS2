@@ -66,7 +66,7 @@ public class VesalaServer {
         try {
             while(true) {
                 
-               initializeStreams();
+                initializeStreams();
                 System.out.println("Server is running!");
                 Socket socket = server.accept();
                 
